@@ -1,0 +1,4 @@
+如果在web.xml中servlet-mapping的url-pattern设置的是/，而不是如.do。
+表示将所有的文件，包含静态资源文件都交给spring mvc处理。
+就需要用到<mvc:annotation-driven />了。如果不加，
+DispatcherServlet则无法区分请求是资源文件还是mvc的注解，而导致controller的请求报404错误。

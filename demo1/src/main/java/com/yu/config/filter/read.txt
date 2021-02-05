@@ -1,0 +1,17 @@
+Filter的创建和销毁由web服务器负责。 web应用程序启动时，web服务器将创建Filter的实例对象，
+并调用其init方法，完成对象的初始化 功能，从而为后续的用户请求作好拦截的准备工作，filter对
+象只会创建一次，init方法也只会执行一次。通过init方法的参数，可获得代表当前 filter配置信息
+的FilterConfig对象。
+
+
+<filter-mapping>元素用于设置一个 Filter 所负责拦截的资源。一个Filter拦截的资源可通过
+两种方式来指定：Servlet 名称和资源访问的请求路径
+<filter-name>子元素用于设置filter的注册名称。该值必须是在<filter>元素中声明过的过滤器的名字
+<url-pattern>设置 filter 所拦截的请求路径(过滤器关联的URL样式)
+<servlet-name>指定过滤器所拦截的Servlet名称。
+<dispatcher>指定过滤器所拦截的资源被 Servlet 容器调用的方式，可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST。
+
+REQUEST：当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include()或forward()方法等访问时,那么该过滤器就不会被调用。
+INCLUDE：如果目标资源是通过RequestDispatcher的include()方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。
+FORWARD：如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。（转发）
+ERROR：如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用。除此之外，过滤器不会被调用。

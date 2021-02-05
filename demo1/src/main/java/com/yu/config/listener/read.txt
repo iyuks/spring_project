@@ -1,0 +1,3 @@
+监听HttpSession属性的改变：实现HttpSessionAttributeListener接口。
+监听ServletContext属性的改变：实现ServletContextAttribute接口。
+监听ServletRequest属性的改变：实现ServletRequestAttribute接口。
